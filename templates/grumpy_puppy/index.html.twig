@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GrumpyPuppy index{% endblock %}
+
+{% block body %}
+    <h1>GrumpyPuppy index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for grumpy_puppy in grumpy_puppies %}
+            <tr>
+                <td>{{ grumpy_puppy.id }}</td>
+                <td>{{ grumpy_puppy.name }}</td>
+                <td>{{ grumpy_puppy.description }}</td>
+                <td>
+                    <a href="{{ path('grumpy_puppy_show', {'id': grumpy_puppy.id}) }}">show</a>
+                    <a href="{{ path('grumpy_puppy_edit', {'id': grumpy_puppy.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('grumpy_puppy_new') }}">Create new</a>
+{% endblock %}

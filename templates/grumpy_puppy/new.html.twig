@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New GrumpyPuppy{% endblock %}
+
+{% block body %}
+    <h1>Create new GrumpyPuppy</h1>
+
+    {{ include('grumpy_puppy/_form.html.twig') }}
+
+    <a href="{{ path('grumpy_puppy_index') }}">back to list</a>
+{% endblock %}
